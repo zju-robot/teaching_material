@@ -10,7 +10,7 @@ paginate: true
 
 ## 从零开始——智能循迹机器人的设计与制作
 
-ZJUSRA Teaching_Department 方辰
+ZJUSRA Teaching_Department 方辰 赵楼晗
 
 ---
 
