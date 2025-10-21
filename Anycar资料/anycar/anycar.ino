@@ -1,13 +1,14 @@
+#define ENA 9         //电机驱动设置 ENA, IN1, IN2 为一组 ENB, IN3, IN4 为一组
+#define IN1 7          
+#define IN2 6
+#define IN3 3
+#define IN4 4
+#define ENB 5
 
-
-#define ENA 10          //电机驱动设置 ENA, IN1, IN2 为一组 ENB, IN3, IN4 为一组，ENB组未设置
-#define IN1 9           
-#define IN2 8
-
-#define RIN1 6          //四路循迹传感器引脚，根据自己情况设置
-#define RIN2 5
-#define RIN3 4
-#define RIN4 3
+#define RIN1 10          //四路循迹传感器引脚，根据自己情况设置
+#define RIN2 11
+#define RIN3 12
+#define RIN4 13
 
 #define DEFSPD 100      //默认速度  需要根据自己实际情况调整大小
 #define ADPSPD 50       //调整速度  需要根据自己实际情况调整大小
