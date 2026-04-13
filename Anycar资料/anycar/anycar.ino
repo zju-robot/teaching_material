@@ -20,7 +20,7 @@
 #define DEFSPD 100      //默认速度  需要根据自己实际情况调整大小
 #define ADPSPD 50       //调整速度  需要根据自己实际情况调整大小
 
-int pin_r[4] = {6, 5, 4, 3};    //四路循迹传感器引脚
+int pin_r[4]={13,12,11,10};    //四路循迹传感器引脚
 int sens[4] = {0, 0, 0, 0};     //四个传感器的读取值
 int sens_r[4] = {-3, -1, 1, 3}; //每个传感器对应权值
 
@@ -28,12 +28,18 @@ void setup() {
     // 电机引脚驱动设置，ENB组未设置
   pinMode(ENA, OUTPUT);
   pinMode(IN1, OUTPUT);
-  pinMode(IN2, OUTPUT);     
+  pinMode(IN2, OUTPUT);
+  pinMode(ENB, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);       
 
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
-
   analogWrite(ENA, 100);
+
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
+  analogWrite(ENB, 100);
     //四路循迹引脚设置
   pinMode(RIN1, INPUT);
   pinMode(RIN2, INPUT);
@@ -69,7 +75,7 @@ void loop() {
   SpdA = DEFSPD + error * ADPSPD;   //根据误差确定A，B电机输出量
   SpdB = DEFSPD - error * ADPSPD;
   SpdA = constrain(SpdA, 0, 255);   //constrain函数，将变量SpdA的值限制在0~255之间
-                                    //若SpdA > 255，返回255；若SpdA < 0，返回0
+  SpdB = constrain(SpdB, 0, 255);  //若SpdA > 255，返回255；若SpdA < 0，返回0
   analogWrite(ENA, SpdA);           //输出，控制电机
   analogWrite(ENB, SpdB);
 }
